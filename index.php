@@ -32,10 +32,10 @@ $_SESSION["username"] = "Charlie J Zhang"
             <strong>登陆成功： </strong>  <?php echo $_SESSION["user"]["username"] ?>
         </div>
 </div>
-<div class="alert alert-error alert-dismissable " style="margin-top:1em;display:none"  id="not_login">
+<div class="alert alert-danger alert-dismissable " style="margin-top:1em;display:none"  id="not_login">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <div class="text-center">
-            <strong>当前未登录：</strong>  3秒后跳转至登陆界面。
+            <strong>当前未登录：</strong>  <span id="count_down" ></span>秒后跳转至登陆界面。
         </div>
 </div>
 <!-- end Alert -->
@@ -44,6 +44,9 @@ $_SESSION["username"] = "Charlie J Zhang"
     if (isset($_SESSION["user"])) {
         # 已经成功登陆
         echo "<script>loginAlert(true);</script>";
+    }else {
+        # login failed
+        echo "<script>loginAlert(false);</script>";
     }
 ?>
 <!-- Title container-->
