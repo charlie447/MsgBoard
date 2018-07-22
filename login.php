@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 <!-- 新 Bootstrap4 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
- 
+
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
- 
+
 <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
- 
+
 <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <style>
@@ -25,17 +25,17 @@
 <!-- Title container-->
 <div class="container">
     <div class="jumbotron text-center">
-        
+
         <h1>Message Board</h1>
         <h3>Leave your comments </h3>
-        
+
     </div>
 
 </div>
 <!-- end Title container-->
 <!-- login card -->
 <div class="container">
-    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 offset-md-3 col-sm-8 offset-md-2">  
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 offset-md-3 col-sm-8 offset-md-2">
         <div class="card bg-info text-white">
             <div class="card-header">
                 <h3 class="card-title"> Please login</h3>
@@ -58,9 +58,9 @@
                         <input type="password" class="form-control input_field" placeholder="Password" name="password">
                     </div>
                     <div class="col-md-6 offset-md-3 text-center">
-                        <button type="submit" class="btn text-info" name="signin">Sign In</button>
+                        <button type="submit" class="btn btn-outline-muted bg-warning" name="signin">Sign In</button>
                     </div>
-                                        
+
                     <div class="alert alert-danger alert-dismissable" style="margin-top:1em; display:none"  id="login_error">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <strong>错误!</strong> 失败的操作。
@@ -87,7 +87,7 @@
             if (username == "" || password == "" ) {
                 $("#login_error").show();
                 console.log("invalid input.");
-                
+
             }else{
                 // AJAX login function
                 $.ajax({
@@ -100,7 +100,7 @@
                         if (data.ok == 1) {
                             console.log(data.ok + " : means you passed");
                             window.location.href = "./index.php";
-                            
+
                         }else{
                             console.log(data.ok + " : means you failed");
                             raiseLoginError();
