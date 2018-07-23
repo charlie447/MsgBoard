@@ -97,11 +97,11 @@ include_once("./model/retrieve.php");
                     <div class="alert alert-info alert-dismissable " style="margin-top:1em; display:none" id="new_comment_area">
                         <button type="button" class="close"  onClick="hideCreateNewForm()">&times;</button>
                         <strong>新留言（New Comment）: </strong>
-                        <form>
+                        <form method="post" action="./model/createPost.php">
                             <div class="form-group">
                             <div class="row">
 
-                                <textarea class="form-control" rows="5" id="new_comment" style="margin-top:1em;"></textarea>
+                                <textarea class="form-control" rows="5" id="new_comment" style="margin-top:1em;" name="content"></textarea>
                             </div>
                             <div class="row ">
 
@@ -113,7 +113,7 @@ include_once("./model/retrieve.php");
                               </div>
                                 <div class="col-md-6 text-right ">
                                     <button type="submit" class="btn btn-outline-info" style="margin-top:1em;">留言</button>
-                                    <button type="button" class="btn btn-outline-info" style="margin-top:1em;">重置</button>
+                                    <button type="reset" class="btn btn-outline-info" style="margin-top:1em;">重置</button>
                                 </div>
 
                             </div>
@@ -146,17 +146,6 @@ include_once("./model/retrieve.php");
 
                     </div>
                   <?php } ?>
-
-                    <div class="alert alert-info alert-dismissable" style="margin-top:1em;"  data-toggle="collapse" data-target="#demo2">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>Session->Password:</strong>  <?php echo $_SERVER["REMOTE_ADDR"] ?>
-                            <div id="demo2" class="collapse ">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </div>
-                    </div>
-
 
                 </div>
             </div>
