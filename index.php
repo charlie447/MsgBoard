@@ -97,11 +97,11 @@ include_once("./model/retrieve.php");
                     <div class="alert alert-info alert-dismissable " style="margin-top:1em; display:none" id="new_comment_area">
                         <button type="button" class="close"  onClick="hideCreateNewForm()">&times;</button>
                         <strong>新留言（New Comment）: </strong>
-                        <form method="post" action="./model/createPost.php">
+                        <form method="post" id="new_message_form">
                             <div class="form-group">
                             <div class="row">
 
-                                <textarea class="form-control" rows="5" id="new_comment" style="margin-top:1em;" name="content"></textarea>
+                                <textarea class="form-control" rows="5" id="new_comment" style="margin-top:1em;" name="content" required></textarea>
                             </div>
                             <div class="row ">
 
@@ -112,7 +112,8 @@ include_once("./model/retrieve.php");
                                   <input type="text" class="form-control input_field" placeholder="留言用户（可选填）" name="post_user_name">
                               </div>
                                 <div class="col-md-6 text-right ">
-                                    <button type="submit" class="btn btn-outline-info" style="margin-top:1em;">留言</button>
+                                  <!-- using ajax post -->
+                                    <button type="submit" class="btn btn-outline-info" style="margin-top:1em;" onclick="onCreatePost()">留言</button>
                                     <button type="reset" class="btn btn-outline-info" style="margin-top:1em;">重置</button>
                                 </div>
 
@@ -147,7 +148,32 @@ include_once("./model/retrieve.php");
                     </div>
                   <?php } ?>
 
+                </d
+
+                iv>
+                <!-- card footer: show the page nums -->
+                <div class="card-footer">
+                  <div class="row">
+
+
+                    <div class="fa fa-arrow-left col-2 ">
+                      <span class="d-none d-sm-inline">上一页</span>
+                    </div>
+                    <div class="text-center col-8">
+
+                    <?php
+                      for ($i=1; $i <= $page_num; $i++) {
+                        $show=($i!=$page)?"<a href='$self?page=".$i."' class='text-dark'> $i </a>":"<b>$i</b>";
+                        echo $show;
+                      }
+                    ?>
+                    </div>
+                    <div class="fa fa-arrow-right col-2 text-right">
+                      <span class="d-none d-sm-inline">下一页</span>
+                    </div>
+                  </div>
                 </div>
+                <!-- end card footer -->
             </div>
         </div>
     </div>

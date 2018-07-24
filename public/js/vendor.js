@@ -85,3 +85,23 @@ function togglePreview(id){
   );
 
 }
+
+function onCreatePost() {
+  console.log("creating a new message...");
+  var form_data = $("#new_message_form").serialize();
+  $.ajax({
+    type:"post",
+    url:"./model/createPost.php",
+    dataType:"json",
+    data: form_data,
+    success:function (data) {
+      if (data.ok == 1) {
+        // 如果插入数据成功，则刷新页面
+        location.reload();
+      }
+    },
+    error:function () {
+      console.log("onCreatePost ajax request have an Error");
+    }
+  })
+}

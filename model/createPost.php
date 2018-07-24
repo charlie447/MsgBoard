@@ -30,7 +30,19 @@
   $insert_sql = "INSERT INTO T_USER_MESSAGE(ip_user_post, name_user_post, content, time_post, lock_message) VALUES ('$ipUserPost', '$postUserName', '$content', '$timePost', $lock_message)";
   if (!$conn->query($insert_sql)) {
     // error report
-    echo '插入数据错误！';
+    // echo '插入数据错误！';
+    $data = array(
+      'ok' => 0
+    );
+
+  }else {
+    // code...
+    // echo '发布成功<br/>2秒后返回！';
+    $data = array(
+      'ok' => 1
+    );
+
   }
-  echo '发布成功<br/>2秒后返回！';
+  echo json_encode($data);
+
  ?>

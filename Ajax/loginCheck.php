@@ -1,16 +1,16 @@
 <?php
     header("Access-Control-Allow-Origin: *");
-    include_once("./model/conn.php");
+    include_once("../model/conn.php");
     if ($_POST['username']) {
-        // if the signin form have submited 
+        // if the signin form have submited
         $user = $_POST['username'];
         $pwd = $_POST['password'];
 
         if ($user == "" || $pwd =="") {
-            # if missing value 
+            # if missing value
             echo "Error: no valuable input.";
         }else {
-            # 
+            #
             // query user from db
             $sql = "SELECT * FROM T_USER_LOGIN WHERE username='$user' AND password='$pwd' limit 1";
             $result = $conn->query($sql);
@@ -37,7 +37,7 @@
                 echo json_encode($data);
             }
 
-            
+
         }
     }else {
         echo "error: no data from form";

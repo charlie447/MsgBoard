@@ -92,7 +92,7 @@
                 // AJAX login function
                 $.ajax({
                     type:"post",
-                    url:"loginCheck.php",
+                    url:"./Ajax/loginCheck.php",
                     dataType:"json",
                     data: form_data,
                     success:function (data) {
