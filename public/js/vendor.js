@@ -105,3 +105,19 @@ function onCreatePost() {
     }
   })
 }
+
+function confirmPassword() {
+  // make sure that the passwords of entered in twice is the same
+  // or pop a Alert
+  if ($("#pwd").val() != $("#repwd").val()) {
+    $("#error_detail").text("两次密码不匹配。");
+    $("#signup_error").show();
+  }else {
+    console.log("密码匹配。");
+  }
+}
+
+
+function onSignup() {
+  
+}

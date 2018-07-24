@@ -1,5 +1,5 @@
 <head>
-<title>用户登录</title>
+<title>用户入口</title>
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 <!-- 新 Bootstrap4 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -12,6 +12,8 @@
 
 <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="./public/js/vendor.js"></script>
+<link rel="stylesheet" href="./public/css/style.css">
 <style>
 
 </style>
@@ -35,16 +37,30 @@
 <!-- end Title container-->
 <!-- login card -->
 <div class="container">
+
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 offset-md-3 col-sm-8 offset-md-2">
         <div class="card bg-info text-white">
             <div class="card-header">
-                <h3 class="card-title"> Please login</h3>
-            </div>
-            <div class="card-body">
-                <!-- alert -->
+              <div class="">
+                <ul class="nav nav-tabs " >
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#login-tab">Sign In</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="#signup-tab" data-toggle="tab" >Sign Up</a>
+                </li>
+                </ul>
 
+              </div>
+            </div>
+            <div class="card-body ">
+              <div class="tab-content">
+
+
+
+                <div class="container tab-pane active" id="login-tab">
                 <!-- form -->
-                <form action="" role="form" class="form-horizontal" id="login" method="post" action="">
+                  <form action="" role="form" class="form-horizontal " id="login" method="post" action="">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-info text-white"><i class="fa fa-address-card"></i></span>
@@ -70,8 +86,38 @@
                         <strong>错误!</strong> 用户名或密码有误。
                     </div>
                 </form>
-
-
+                </div>
+                <div class="container tab-pane fade" id="signup-tab">
+                <!-- signup form -->
+                  <form action="" role="form" class="form-horizontal " id="signup">
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text bg-info text-white"><i class="fa fa-address-card"></i></span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Username" required id="new_username">
+                      </div>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text bg-info text-white"><i class="fa fa-warning"></i></span>
+                          </div>
+                          <input type="password" class="form-control" placeholder="Password" required name="pwd" id="pwd">
+                      </div>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text bg-info text-white"><i class="fa fa-warning"></i></span>
+                          </div>
+                          <input type="password" class="form-control" placeholder="Password check" required name="repwd" id="repwd">
+                      </div>
+                      <div class="col-md-6 offset-md-3 text-center">
+                          <button type="submit" class="btn text-info">Sign Up</button>
+                      </div>
+                      <div class="alert alert-danger alert-dismissable" style="margin-top:1em; display:none"  id="signup_error">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>错误!</strong> <span id="error_detail"></span>
+                      </div>
+                  </form>
+                </div>
+              </div>
             </div>
         </div>
     </div>
@@ -122,7 +168,9 @@
         $("input").focus(function () {
             $("#login_error").hide();
             $("#validate_failed").hide();
-        })
+            $("#signup_error").hide();
+        });
+        $("#repwd").blur(confirmPassword);
     })
 </script>
 </body>
