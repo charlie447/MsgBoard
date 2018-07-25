@@ -124,6 +124,7 @@ function confirmPassword() {
 function confirmUsername() {
   // make sure the username is availuable currently
   // by using ajax request
+  //
   var new_username = $("#new_username").val()
   console.log(new_username);
   $.post("./Ajax/usernameCheck.php",
@@ -148,5 +149,34 @@ function confirmUsername() {
 }
 
 function onSignup() {
+  var form_data = $("#signup").serialize();
+      // AJAX login function
+      $.ajax({
+          type:"post",
+          url:"./model/signup.php",
+          dataType:"json",
+          data: form_data,
+          success:function (data) {
+              // console.log(data);
+              if (data.ok == 1) {
+                  console.log(data.ok + " : means you passed");
+                  $("#message_body").html("注册成功！");
+                  $("#message_modal").modal('show');
+                  setTimeout(function () {
+                    window.location.href = "./login.php";
+                  },3000)
 
+
+              }else{
+                  console.log(data.ok + " : means you failed");
+                  raiseLoginError();
+              }
+          },
+          error:function () {
+              console.log("response is wrong.");
+          }
+      })
+
+
+  return false;
 }

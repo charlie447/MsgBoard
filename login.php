@@ -1,5 +1,7 @@
 <head>
 <title>用户入口</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 <!-- 新 Bootstrap4 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -123,6 +125,36 @@
     </div>
 </div>
 <!-- end login card-->
+
+<!-- modal container -->
+<div class="container">
+
+<!-- 模态框 -->
+<div class="modal fade" id="message_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">Message Board</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- 模态框主体 -->
+      <div class="modal-body" id="message_body">
+        
+      </div>
+
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- end modal container -->
 <script type="text/javascript">
     $(function(){
         function onLogin(){
@@ -172,6 +204,7 @@
         });
         $("#repwd").keyup(confirmPassword);
         $("#new_username").blur(confirmUsername);
+        // $("#message_modal").modal('show');
     })
 </script>
 </body>
