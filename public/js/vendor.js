@@ -110,14 +110,43 @@ function confirmPassword() {
   // make sure that the passwords of entered in twice is the same
   // or pop a Alert
   if ($("#pwd").val() != $("#repwd").val()) {
-    $("#error_detail").text("两次密码不匹配。");
-    $("#signup_error").show();
+    // $("#error_detail").text("两次密码不匹配。");
+    // $("#signup_error").show();
+    $("#signup_btn").attr("disabled",true);
+    $("#repwd_danger").addClass("bg-danger");
   }else {
     console.log("密码匹配。");
+    $("#signup_btn").attr("disabled",false);
+    $("#repwd_danger").removeClass("bg-danger");
   }
 }
 
+function confirmUsername() {
+  // make sure the username is availuable currently
+  // by using ajax request
+  var new_username = $("#new_username").val()
+  console.log(new_username);
+  $.post("./Ajax/usernameCheck.php",
+  {
+    newUsername:new_username
+  },
+  function(data,status){
+    console.log("status:" + status);
+    if (status=="success") {
+      if (data.ok==1) {
+        console.log("username is availuable");
+        $("#username_danger").removeClass("bg-danger");
+      }else {
+        console.log("username is unavailuable. data.ok:" + data.ok);
+        $("#username_danger").addClass("bg-danger");
+      }
+    }else {
+      console.log("request has error.");
+    }
+  }
+  ,"json");
+}
 
 function onSignup() {
-  
+
 }

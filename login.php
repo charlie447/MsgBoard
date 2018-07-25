@@ -92,7 +92,7 @@
                   <form action="" role="form" class="form-horizontal " id="signup">
                       <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                              <span class="input-group-text bg-info text-white"><i class="fa fa-address-card"></i></span>
+                              <span class="input-group-text bg-info text-white" id="username_danger"><i class="fa fa-address-card"></i></span>
                           </div>
                           <input type="text" class="form-control" placeholder="Username" required id="new_username">
                       </div>
@@ -104,12 +104,12 @@
                       </div>
                       <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                              <span class="input-group-text bg-info text-white"><i class="fa fa-warning"></i></span>
+                              <span class="input-group-text bg-info text-white" id="repwd_danger"><i class="fa fa-warning"></i></span>
                           </div>
                           <input type="password" class="form-control" placeholder="Password check" required name="repwd" id="repwd">
                       </div>
                       <div class="col-md-6 offset-md-3 text-center">
-                          <button type="submit" class="btn text-info">Sign Up</button>
+                          <button type="submit" class="btn text-info" id="signup_btn">Sign Up</button>
                       </div>
                       <div class="alert alert-danger alert-dismissable" style="margin-top:1em; display:none"  id="signup_error">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -170,7 +170,8 @@
             $("#validate_failed").hide();
             $("#signup_error").hide();
         });
-        $("#repwd").blur(confirmPassword);
+        $("#repwd").keyup(confirmPassword);
+        $("#new_username").blur(confirmUsername);
     })
 </script>
 </body>
