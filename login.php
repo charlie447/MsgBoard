@@ -96,7 +96,7 @@
                           <div class="input-group-prepend">
                               <span class="input-group-text bg-info text-white" id="username_danger"><i class="fa fa-address-card"></i></span>
                           </div>
-                          <input type="text" class="form-control" placeholder="Username" required id="new_username">
+                          <input type="text" class="form-control" placeholder="Username" required id="new_username" name="new_username">
                       </div>
                       <div class="input-group mb-3">
                           <div class="input-group-prepend">
@@ -142,7 +142,7 @@
 
       <!-- 模态框主体 -->
       <div class="modal-body" id="message_body">
-        
+
       </div>
 
       <!-- 模态框底部 -->
@@ -205,6 +205,7 @@
         $("#repwd").keyup(confirmPassword);
         $("#new_username").blur(confirmUsername);
         // $("#message_modal").modal('show');
+        $("#signup").submit(onSignup);
     })
 </script>
 </body>

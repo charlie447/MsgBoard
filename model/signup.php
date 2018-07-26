@@ -16,5 +16,5 @@ if (!$result) {
 }else {
   $data = array('ok' => 1 );
 }
-echo jaon_encode($data);
+echo json_encode($data);
  ?>
