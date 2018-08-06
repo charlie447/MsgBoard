@@ -26,6 +26,8 @@
                         'ok' => 1
                     );
                     //  当验证通过后，启动 Session
+                    $lifeTime = 30;
+                    session_set_cookie_params($lifeTime); // seems no use at all
                     session_start();
                     $_SESSION["user"] = $data;
                     echo json_encode($data);
